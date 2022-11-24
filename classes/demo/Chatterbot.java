@@ -471,7 +471,7 @@ public class Chatterbot {
 			}
 		};
 
-	private static String transposList[][] = {
+	private static String transposeList[][] = {
 			{"I'M", "YOU'RE"},
 			{"AM", "ARE"},
 			{"WERE", "WAS"},
@@ -646,11 +646,11 @@ public class Chatterbot {
 	public static String transpose( String str )
 	{
 		boolean bTransposed = false;
-		for(int i = 0; i < transposList.length; ++i)
+		for(int i = 0; i < transposeList.length; ++i)
 		{
-			String first = transposList[i][1];
+			String first = transposeList[i][1];
 			first = " " + first + " ";
-			String second = transposList[i][0];
+			String second = transposeList[i][0];
 			second = " " + second + " ";
 
 			String backup = str;
@@ -663,11 +663,11 @@ public class Chatterbot {
 
 		if(!bTransposed)
 		{
-			for( int i = 0; i < transposList.length; ++i )
+			for( int i = 0; i < transposeList.length; ++i )
 			{
-				String first = transposList[i][0];
+				String first = transposeList[i][0];
 				first = " " + first + " ";
-				String second = transposList[i][1];
+				String second = transposeList[i][1];
 				second = " " + second + " ";
 				str = str.replace(first, second);
 			}
@@ -675,12 +675,12 @@ public class Chatterbot {
 		return str;
 	}
 
-	// determins if the keyword position is correct depending on the type of keywords within these algorithm, 
-	// we consider that there is four type of keywords those who have any front or back underscore are allowed 
+	// determines if the keyword position is correct depending on the type of keywords within these algorithm, 
+	// we consider that there are four type of keywords those who have any front or back underscore are allowed 
 	// to be at any place on a given user input and they can also be found alone on a given user input.
 	// Those who have a back and front (_keyWord_) underscore can be found only alone on an input.
-	// The keywords who only have have an understandin the front can never be found at the end of an input.
-	// And finaly, the keywords who have an underscore at the back should alway belocated at the end of the input.
+	// The keywords who only have an underscore at the front can never be found at the end of an input.
+	// And finally, the keywords who have an underscore at the back should always be located at the end of the input.
 	static boolean wrong_location(String keyword, char firstChar, char lastChar, int pos)
 	{
 		boolean bWrongPos = false;
